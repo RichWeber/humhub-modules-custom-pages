@@ -18,6 +18,7 @@ use humhub\components\ActiveRecord;
  * @property integer $admin_only
  * @property integer $in_new_window
  * @property string $navigation_class
+ * @property string $slug
  */
 class Page extends ActiveRecord
 {
@@ -45,9 +46,9 @@ class Page extends ActiveRecord
         return array(
             [['type', 'title', 'navigation_class'], 'required'],
             [['type', 'sort_order', 'admin_only', 'in_new_window'], 'integer'],
-            [['title', 'navigation_class'], 'string', 'max' => 255],
+            [['title', 'navigation_class', 'slug'], 'string', 'max' => 255],
             [['icon'], 'string', 'max' => 100],
-            [['content', 'url'], 'safe'],
+            [['content', 'url', 'slug'], 'safe'],
         );
     }
 
@@ -67,6 +68,7 @@ class Page extends ActiveRecord
             'admin_only' => 'Only visible for admins',
             'in_new_window' => 'Open in new window',
             'navigation_class' => 'Navigation',
+            'slug' => 'Slug'
         );
     }
 

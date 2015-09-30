@@ -31,6 +31,11 @@ Assets::register($this);
             <?php echo $form->textField($page, 'title', array('class' => 'form-control', 'placeholder' => Yii::t('CustomPagesModule.views_admin_edit', 'Page title'))); ?>
         </div>
 
+        <div class="form-group">
+            <?php echo $form->labelEx($page, 'slug'); ?>
+            <?php echo $form->textField($page, 'slug', array('class' => 'form-control', 'placeholder' => Yii::t('CustomPagesModule.views_admin_edit', 'Slug URL'))); ?>
+        </div>
+
         <?php if ($page->type == Page::TYPE_HTML): ?>
             <div class="form-group" id="content_field">
                 <?php echo $form->labelEx($page, 'content'); ?>

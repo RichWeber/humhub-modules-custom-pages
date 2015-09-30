@@ -17,7 +17,11 @@ class ViewController extends Controller
 
     public function actionIndex()
     {
-        $page = Page::findOne(['id' => Yii::$app->request->get('id')]);
+        if (null !== Yii::$app->request->get('slug')) {
+            $page = Page::findOne(['slug' => Yii::$app->request->get('slug')]);
+        } else {
+            $page = Page::findOne(['id' => Yii::$app->request->get('id')]);
+        }
 
         if ($page === null) {
             throw new HttpException('404', 'Could not find requested page');
